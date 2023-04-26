@@ -17,6 +17,8 @@ namespace LENA.FormApp.DataAccess.Configurations
             builder.HasOne(x => x.AppUser).WithMany(x => x.Forms).HasForeignKey(x => x.AppUserId);
 
 
+
+
         }
 
     }

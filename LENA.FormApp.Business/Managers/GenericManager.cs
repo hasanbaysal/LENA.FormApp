@@ -29,7 +29,11 @@ namespace LENA.FormApp.Business.Managers
         private readonly IValidator<UpdateDto> _UpdateDtoValidator;
         private readonly IUow _uow;
        
-        protected GenericManager(IMapper mapper, IValidator<CreateDto> createDtoValidator, IValidator<UpdateDto> updateDtoValidator, IUow uow)
+        protected GenericManager(
+            IMapper mapper,
+            IValidator<CreateDto> createDtoValidator,
+            IValidator<UpdateDto> updateDtoValidator,
+            IUow uow)
         {
             _mapper = mapper;
             _createDtoValidator = createDtoValidator;

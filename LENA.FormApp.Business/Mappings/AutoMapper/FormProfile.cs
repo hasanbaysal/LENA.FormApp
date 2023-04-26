@@ -9,6 +9,7 @@ namespace LENA.FormApp.Business.Mappings.AutoMapper
         public FormProfile()
         {
             CreateMap<Form, FormCreateDto>().ReverseMap();
+            CreateMap<Form, FormListDto>().ReverseMap();
         }
 
     }

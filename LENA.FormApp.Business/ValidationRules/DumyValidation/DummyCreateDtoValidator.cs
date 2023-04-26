@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LENA.FormApp.Business.ValidationRules.DumyValidation
 {
-    public class DummyCreateDtoValidator:AbstractValidator<DummyCreateDto>
+    public class DummyCreateDtoValidator:AbstractValidator<DummyCrceateDto>
     {
         public DummyCreateDtoValidator()
         {

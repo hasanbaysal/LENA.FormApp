@@ -1,7 +1,14 @@
-﻿using LENA.FormApp.Business.Interfaces;
+﻿using FluentValidation;
+using LENA.FormApp.Business.Interfaces;
 using LENA.FormApp.Business.Managers;
+using LENA.FormApp.Business.ValidationRules;
+using LENA.FormApp.Business.ValidationRules.DumyValidation;
 using LENA.FormApp.Common;
 using LENA.FormApp.DataAccess.Contexts;
+using LENA.FormApp.DataAccess.UnitOfWork;
+using LENA.FormApp.Dtos.DummyDto;
+using LENA.FormApp.Dtos.FormDtos;
+using LENA.FormApp.Dtos.UserDtos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -24,11 +31,26 @@ namespace LENA.FormApp.Business.DependencyResolver.BuiltInIocContiner
             {
                 opt.UseSqlServer(con.ConnectionString);
             });
+            services.AddScoped<IUow, Uow>();
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 
+
+            services.AddTransient<IValidator<DummyUpdatedto>, DummyUpdateDtoValidation>();
+            services.AddTransient<IValidator<DummyCrceateDto>, DummyCreateDtoValidator>();
+
+
+            services.AddTransient<IValidator<UserCreateDto>, UserCreateDtoValidationRules>();
+            services.AddTransient<IValidator<FormCreateDto>, FromCreateDtoValidationRules>();
+
+      
+
+
+            
+
             services.AddScoped<IUserService, UserManager>();
+            services.AddScoped<IFormService, FormManager>();
 
         }
 

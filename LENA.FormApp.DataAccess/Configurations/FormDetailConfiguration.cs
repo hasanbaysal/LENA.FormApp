@@ -6,6 +6,7 @@ namespace LENA.FormApp.DataAccess.Configurations
 {
     public class FormDetailConfiguration : IEntityTypeConfiguration<FormDetail>
     {
+        //s
         public void Configure(EntityTypeBuilder<FormDetail> builder)
         {
             builder.Property(x => x.Name).IsRequired().HasMaxLength(50);

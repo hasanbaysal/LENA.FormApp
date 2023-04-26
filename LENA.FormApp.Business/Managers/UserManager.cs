@@ -26,29 +26,15 @@ namespace LENA.FormApp.Business.Managers
         public UserManager(
                 IMapper mapper,
                 IValidator<UserCreateDto> createDtoValidator,
-                IValidator<DummyUpdatedto> updateDtoValidator, IUow uow,
-                IValidator<FormCreateDto> formCreateDtovalidator)
+                IValidator<DummyUpdatedto> updateDtoValidator,
+                IUow uow
+                )
                 :base(mapper, createDtoValidator, updateDtoValidator, uow)
         {
            
         }
 
-        public async Task<IResponse<FormCreateDto>> AddNewForm(FormCreateDto dto)
-        {
-            var validationRules = _formCreateDtovalidator.Validate(dto);
-            if (!validationRules.IsValid)
-            {
-                return new Response<FormCreateDto>(dto, validationRules.CustomErrorList());
-            }
-
-            var mappedData = _mapper.Map<Form>(dto);
-
-            uow.GetGenericRepository<Form>().Create(mappedData);
-            await uow.SaveChangeAsync();
-
-            return new Response<FormCreateDto>(ResponseType.Success,"");
-
-        }
+      
     }
 
 

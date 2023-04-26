@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace LENA.FormApp.Business.ValidationRules
 {
-    public class UserSignInValidationRules:AbstractValidator<UserCreateDto>
+    public class UserCreateDtoValidationRules : AbstractValidator<UserCreateDto>
     {
-        public UserSignInValidationRules()
+        public UserCreateDtoValidationRules()
         {
             RuleFor(x => x.UserName).NotEmpty().WithMessage("{PropertyName} boş olamaz").MaximumLength(30);
 
