@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LENA.FormApp.Entities", "LENA.FormApp.Entities\LENA.FormApp.Entities.csproj", "{DFFB41CD-1E2A-4A15-A244-6E94E65AAF02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LENA.FormApp.DataAccess", "LENA.FormApp.DataAccess\LENA.FormApp.DataAccess.csproj", "{9EAD060D-4F8C-414A-A0A6-996DA4B8C15D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LENA.FormApp.Business", "LENA.FormApp.Business\LENA.FormApp.Business.csproj", "{2FF2E5DC-CCA3-4D02-9AB3-90DACFE0968F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LENA.FormApp.Common", "LENA.FormApp.Common\LENA.FormApp.Common.csproj", "{B0FE6847-E862-46F1-927A-0DFDC741D39F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LENA.FormApp.Web", "LENA.FormApp.Web\LENA.FormApp.Web.csproj", "{48557503-679F-4515-BFF5-F05CB481FB50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LENA.FormApp.Dtos", "LENA.FormApp.Dtos\LENA.FormApp.Dtos.csproj", "{589A53F3-2338-40BD-8F0C-F29A60D1E32A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DFFB41CD-1E2A-4A15-A244-6E94E65AAF02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFFB41CD-1E2A-4A15-A244-6E94E65AAF02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFFB41CD-1E2A-4A15-A244-6E94E65AAF02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFFB41CD-1E2A-4A15-A244-6E94E65AAF02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EAD060D-4F8C-414A-A0A6-996DA4B8C15D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EAD060D-4F8C-414A-A0A6-996DA4B8C15D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EAD060D-4F8C-414A-A0A6-996DA4B8C15D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EAD060D-4F8C-414A-A0A6-996DA4B8C15D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FF2E5DC-CCA3-4D02-9AB3-90DACFE0968F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FF2E5DC-CCA3-4D02-9AB3-90DACFE0968F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FF2E5DC-CCA3-4D02-9AB3-90DACFE0968F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FF2E5DC-CCA3-4D02-9AB3-90DACFE0968F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0FE6847-E862-46F1-927A-0DFDC741D39F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0FE6847-E862-46F1-927A-0DFDC741D39F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0FE6847-E862-46F1-927A-0DFDC741D39F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0FE6847-E862-46F1-927A-0DFDC741D39F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48557503-679F-4515-BFF5-F05CB481FB50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48557503-679F-4515-BFF5-F05CB481FB50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48557503-679F-4515-BFF5-F05CB481FB50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48557503-679F-4515-BFF5-F05CB481FB50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{589A53F3-2338-40BD-8F0C-F29A60D1E32A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{589A53F3-2338-40BD-8F0C-F29A60D1E32A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{589A53F3-2338-40BD-8F0C-F29A60D1E32A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{589A53F3-2338-40BD-8F0C-F29A60D1E32A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F3BEB853-E0FD-4BE7-86BC-510F742D401A}
+	EndGlobalSection
+EndGlobal
