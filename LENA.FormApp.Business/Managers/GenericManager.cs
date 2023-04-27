@@ -4,20 +4,14 @@ using LENA.FormApp.Business.Extentions;
 using LENA.FormApp.Business.Interfaces;
 using LENA.FormApp.Common.Enums;
 using LENA.FormApp.Common.ResponseModels;
-using LENA.FormApp.DataAccess.Interfaces;
 using LENA.FormApp.DataAccess.UnitOfWork;
 using LENA.FormApp.Dtos.BaseDtos;
 using LENA.FormApp.Entities.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LENA.FormApp.Business.Managers
 {
-    public  class GenericManager<CreateDto, UpdateDto, ListDto, T> 
-        :IService<CreateDto, UpdateDto, ListDto, T>
+    public class GenericManager<CreateDto, UpdateDto, ListDto, T>
+        : IService<CreateDto, UpdateDto, ListDto, T>
         where CreateDto : class, IDto, new()
         where UpdateDto : class, IUpdateDto, new()
         where ListDto : class, IDto, new()
@@ -28,8 +22,8 @@ namespace LENA.FormApp.Business.Managers
         private readonly IValidator<CreateDto> _createDtoValidator;
         private readonly IValidator<UpdateDto> _UpdateDtoValidator;
         private readonly IUow _uow;
-       
-        protected GenericManager(
+
+        public GenericManager(
             IMapper mapper,
             IValidator<CreateDto> createDtoValidator,
             IValidator<UpdateDto> updateDtoValidator,
@@ -40,10 +34,10 @@ namespace LENA.FormApp.Business.Managers
             _UpdateDtoValidator = updateDtoValidator;
             _uow = uow;
 
-          
+
         }
 
-        public async Task<IResponse<CreateDto>> CreateAsync(CreateDto dto)
+        public virtual async Task<IResponse<CreateDto>> CreateAsync(CreateDto dto)
         {
 
             var result = _createDtoValidator.Validate(dto);
@@ -71,7 +65,7 @@ namespace LENA.FormApp.Business.Managers
         public async Task<IResponse<IDto>> GetByIdAsync<IDto>(int id)
         {
 
-            var data = await _uow.GetGenericRepository<T>().GetbyFilter(x => x.Id == id);
+            var data = await _uow.GetGenericRepository<T>().GetbyFilterAsync(x => x.Id == id);
 
             if (data == null)
 
@@ -82,7 +76,7 @@ namespace LENA.FormApp.Business.Managers
             return new Response<IDto>(ResponseType.Success, mappedData);
         }
 
-        public async  Task<IResponse> RemoveAsync(int id)
+        public async Task<IResponse> RemoveAsync(int id)
         {
             var data = await _uow.GetGenericRepository<T>().FindAsync(id);
             if (data == null)

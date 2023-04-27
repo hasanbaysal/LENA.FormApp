@@ -1,18 +1,13 @@
 ﻿using LENA.FormApp.Common.ResponseModels;
 using LENA.FormApp.Dtos.BaseDtos;
 using LENA.FormApp.Entities.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LENA.FormApp.Business.Interfaces
 {
-    public interface IService<CreateDto,UpdateDto,ListDto,T>
-        where CreateDto : class, IDto,new()
-        where UpdateDto : class, IUpdateDto,new()
-        where ListDto : class, IDto,new()
+    public interface IService<CreateDto, UpdateDto, ListDto, T>
+        where CreateDto : class, IDto, new()
+        where UpdateDto : class, IUpdateDto, new()
+        where ListDto : class, IDto, new()
         where T : BaseEntity
     {
         Task<IResponse<CreateDto>> CreateAsync(CreateDto dto);

@@ -2,7 +2,7 @@
 
 namespace LENA.FormApp.Dtos.DummyDto
 {
-    public class DummyCrceateDto:IDto
+    public class DummyCreateDto : IDto
     {
 
     }

@@ -1,9 +1,4 @@
 ﻿using LENA.FormApp.Common.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LENA.FormApp.Common.ResponseModels
 {
@@ -24,7 +19,7 @@ namespace LENA.FormApp.Common.ResponseModels
 
     }
 
-   
 
-  
+
+
 }

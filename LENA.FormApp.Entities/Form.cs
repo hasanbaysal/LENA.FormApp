@@ -2,7 +2,7 @@
 
 namespace LENA.FormApp.Entities
 {
-    public class Form:BaseEntity
+    public class Form : BaseEntity
     {
         public Form()
         {

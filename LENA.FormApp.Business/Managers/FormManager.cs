@@ -8,21 +8,16 @@ using LENA.FormApp.DataAccess.UnitOfWork;
 using LENA.FormApp.Dtos.DummyDto;
 using LENA.FormApp.Dtos.FormDtos;
 using LENA.FormApp.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LENA.FormApp.Business.Managers
 {
-    public class FormManager : GenericManager<FormCreateDto, DummyUpdatedto, FormListDto, Form>, IFormService
+    public class FormManager :
+            GenericManager<FormCreateDto, DummyUpdatedto, FormListDto, Form>, IFormService
     {
         private readonly IMapper _mapper;
         private readonly IValidator<FormCreateDto> _createDtoValidator;
         private readonly IUow _uow;
-        protected FormManager
+        public FormManager
         (
             IMapper mapper,
             IValidator<FormCreateDto> createDtoValidator,
@@ -35,7 +30,6 @@ namespace LENA.FormApp.Business.Managers
             _uow = uow;
         }
 
-
         public async Task<IResponse<FormCreateDto>> AddNewForm(FormCreateDto dto)
         {
             var validationRules = _createDtoValidator.Validate(dto);
@@ -47,6 +41,7 @@ namespace LENA.FormApp.Business.Managers
             var mappedData = _mapper.Map<Form>(dto);
 
             _uow.GetGenericRepository<Form>().Create(mappedData);
+
             await _uow.SaveChangeAsync();
 
             return new Response<FormCreateDto>(ResponseType.Success, "");
