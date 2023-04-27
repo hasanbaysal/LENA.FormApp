@@ -34,7 +34,7 @@ namespace LENA.FormApp.Business.Managers
 
         }
 
-        public async Task<Response<UserListDto>> CheckUserPassword(UserLoginDto loignDto)
+        public async Task<IResponse<UserListDto>> CheckUserPassword(UserLoginDto loignDto)
         {
 
             var validationResult = _userLoginValidator.Validate(loignDto);
@@ -44,7 +44,7 @@ namespace LENA.FormApp.Business.Managers
                 return new Response<UserListDto>(new UserListDto(), validationResult.CustomErrorList());
             }
 
-            var user = _uow.GetGenericRepository<AppUser>().GetbyFilterAsync(x => x.UserName == loignDto.UserName && x.Password == loignDto.Password);
+            var user = await _uow.GetGenericRepository<AppUser>().GetbyFilterAsync(x => x.UserName == loignDto.UserName && x.Password == loignDto.Password);
             if (user == null)
                 return new Response<UserListDto>(ResponseType.NotFound, "kullanıcı adı veya şifre hatalı");
 
@@ -57,6 +57,8 @@ namespace LENA.FormApp.Business.Managers
 
             var validationResult = _createDtoValidator.Validate(dto);
 
+            
+
             if (validationResult.IsValid)
             {
                 var user = await _uow.UserRepository.GetbyFilterAsync(x => x.UserName == dto.UserName);
@@ -65,8 +67,10 @@ namespace LENA.FormApp.Business.Managers
                 {
                     return new Response<UserCreateDto>(ResponseType.Error, "Bu kullanıcı Adı zaten kayıtlı");
                 }
+                return await base.CreateAsync(dto);
             }
-            return await base.CreateAsync(dto);
+
+            return new Response<UserCreateDto>(dto, validationResult.CustomErrorList());
         }
     }
 

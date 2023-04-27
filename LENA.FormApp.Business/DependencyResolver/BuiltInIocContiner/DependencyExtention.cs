@@ -11,6 +11,7 @@ using LENA.FormApp.Dtos.FormDtos;
 using LENA.FormApp.Dtos.UserDtos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using System.Globalization;
 using System.Reflection;
 
 namespace LENA.FormApp.Business.DependencyResolver.BuiltInIocContiner
@@ -21,7 +22,7 @@ namespace LENA.FormApp.Business.DependencyResolver.BuiltInIocContiner
         {
             var con = new ConnectionStringInformation();
             info(con);
-
+      
             services.AddDbContext<AppDbContext>(opt =>
             {
                 opt.UseSqlServer(con.ConnectionString);

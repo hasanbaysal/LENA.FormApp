@@ -7,6 +7,6 @@ namespace LENA.FormApp.Business.Interfaces
 {
     public interface IUserService : IService<UserCreateDto, DummyUpdatedto, UserListDto, AppUser>
     {
-        Task<Response<UserListDto>> CheckUserPassword(UserLoginDto userListDto);
+        Task<IResponse<UserListDto>> CheckUserPassword(UserLoginDto userListDto);
     }
 }

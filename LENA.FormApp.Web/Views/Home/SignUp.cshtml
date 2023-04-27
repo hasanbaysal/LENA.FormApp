@@ -1,0 +1,38 @@
+﻿@model UserCreateDto
+
+<div class="row">
+
+    <h2 class="text-center"> Kayıt Ol</h2>
+
+    <div class="alert alert-danger" asp-validation-summary="ModelOnly">
+    </div>
+
+    <div class="col-md-8 mx-auto">
+
+        <form asp-action="SignUp" asp-controller="Home" method="post">
+
+            <div class="row mb-3">
+                <label  class="col-sm-2 col-form-label p-0 mb-1">Kullanıcı Adı</label>
+                <input class="form-control" asp-for="UserName">
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+
+            <div class="row mb-3">
+                <label  class="col-sm-2 col-form-label p-0 mb-1"> Email</label>
+                <input class="form-control" asp-for="Email">
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+         
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label p-0 mb-1">Şifre</label>
+                <input class="form-control" asp-for="Password">
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+           
+            <button type="submit" class="btn btn-primary ">Sign Up</button>
+
+
+        </form>
+    </div>
+</div>
