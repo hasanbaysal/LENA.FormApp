@@ -1,0 +1,129 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+    Pop-up Aç
+</button>
+
+
+
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+
+            <!-- Modal başlığı -->
+            <div class="modal-header">
+                <h5 class="modal-title">Modal Başlığı</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+            </div>
+
+
+            <!-- Modal içeriği -->
+            <div class="modal-body">
+
+                <select id="dataTypes">
+                    <option value="string">String</option>
+                    <option value="number">Number</option>
+                    <option value="email">Email</option>
+                </select>
+                <input type="text" id="fieldName" placeholder="Field Name">
+                <input type="checkbox" id="isRequired"> Required
+                <button id="addBtn">Ekle</button>
+
+
+                <form id="dynamicForm">
+
+                    <div class="mb-3">
+                        <h2>inputlar</h2>
+                    </div>
+
+                </form>
+
+            </div>
+
+
+            <!-- Modal altbilgi -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts{
+
+    <script>
+
+
+        $(document).ready(function () {
+            var fields = [];
+
+            $("#addBtn").click(function () {
+                var dataType = $("#dataTypes").val().toUpperCase();
+                var fieldName = $("#fieldName").val();
+                var isRequired = $("#isRequired").is(":checked");
+
+
+
+
+                if(fieldName =="")
+                {
+                    window.alert("name alanı boş olamaz");
+                    return ;
+                }
+            
+                 
+
+
+                if (fieldName && dataType) {
+                    fields.push({
+                        required: isRequired,
+                        name: fieldName,
+                        dataType: dataType
+                    });
+
+                    console.log(fields);
+
+
+
+                  
+
+                       $("#dataTypes").val("string");
+                      $("#fieldName").val("");
+                      $("#isRequired").prop("checked", false);
+
+
+                    
+
+                    var newInput = $("<input>").attr({
+                        type: dataType.toLowerCase(),
+                        name: fieldName,
+                        required: isRequired
+                    });
+                    var newLabel = $("<label>").text(fieldName + ": ")
+
+
+                
+
+                    var newFormGroup = $("<div>").addClass("mb-1").append(newLabel).append(newInput));
+
+
+                    $("#dynamicForm").append(newFormGroup);
+
+                    $("#dynamicForm").append("<br>");
+
+                }
+            });
+        });
+
+    </script>
+
+}
